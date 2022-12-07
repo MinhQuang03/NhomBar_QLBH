@@ -53,6 +53,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[5.0.17, )"
+            },
+            "ZXing.Net": {
+              "target": "Package",
+              "version": "[0.5.0, )"
             }
           },
           "imports": [

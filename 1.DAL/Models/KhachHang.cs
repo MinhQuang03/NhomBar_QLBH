@@ -24,13 +24,15 @@ namespace _1.DAL.Models
         public string TenKH { get; set; }
 
         [Column("NgaySinh", TypeName = "datetime")]
-        public DateTime NgaySinh { get; set; }
+        public DateTime? NgaySinh { get; set; }
 
         [Column("SDT", TypeName = "varchar")]
         [StringLength(20)]
         public string SDT { get; set; }
 
-        public string DiaChi { get; set; }
+        public string? DiaChi { get; set; }
+
+        public int? DiemTieuDung { get; set; }
 
         public virtual ObservableCollectionListSource<GioHang> GioHangs { get; } = new();
         public virtual ObservableCollectionListSource<HoaDon> HoaDons { get; } = new();

@@ -35,6 +35,8 @@ namespace _2.BUS.Services
             return true;
         }
 
+        
+
         public bool DeleteHoaDonChiTiet(HoaDonChiTiet hoaDonChiTiet)
         {
             _hoaDonChiTietRepository.Delete(hoaDonChiTiet);
@@ -47,16 +49,20 @@ namespace _2.BUS.Services
             return _hoaDonChiTietList;
         }
 
-        public List<HoaDonChiTietVM> ShowHoaDonChiTiet(string MaHD)
+
+
+        public List<HoaDonChiTietVM> ShowHoaDonChiTiet(Guid IdHD)
         {
             var data = (from od in _context.HoaDonChiTiets
                         join o in _context.HoaDons on od.IdHoaDon equals o.IdHoaDon
                         join ct in _context.ChiTietSanPhams on od.IdChiTietSp equals ct.IdChiTietSp
-                        where od.HoaDon.MaHD == MaHD
+                        where od.HoaDon.IdHoaDon == IdHD
                         select new HoaDonChiTietVM
                         {
                             IdChiTietSp = od.IdChiTietSp,
-                            
+                            MaSp = ct.SanPham.MaSP,
+                            TenSP = ct.SanPham.TenSP,
+                            MaQR = ct.MaQRCode,
                             GiaBan = od.GiaBan,
                             SoLuong = od.SoLuong,
 

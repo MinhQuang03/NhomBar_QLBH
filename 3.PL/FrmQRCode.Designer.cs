@@ -28,31 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.cbb_Camera = new System.Windows.Forms.ComboBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.tbt_BarCode = new System.Windows.Forms.TextBox();
             this.btn_Start = new System.Windows.Forms.Button();
+            this.cbb_Camera = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(75, 48);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(60, 20);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Camera";
-            // 
-            // cbb_Camera
-            // 
-            this.cbb_Camera.FormattingEnabled = true;
-            this.cbb_Camera.Location = new System.Drawing.Point(194, 45);
-            this.cbb_Camera.Name = "cbb_Camera";
-            this.cbb_Camera.Size = new System.Drawing.Size(294, 28);
-            this.cbb_Camera.TabIndex = 1;
             // 
             // pictureBox1
             // 
@@ -88,6 +71,23 @@
             this.btn_Start.UseVisualStyleBackColor = true;
             this.btn_Start.Click += new System.EventHandler(this.btn_Start_Click);
             // 
+            // cbb_Camera
+            // 
+            this.cbb_Camera.FormattingEnabled = true;
+            this.cbb_Camera.Location = new System.Drawing.Point(194, 45);
+            this.cbb_Camera.Name = "cbb_Camera";
+            this.cbb_Camera.Size = new System.Drawing.Size(294, 28);
+            this.cbb_Camera.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(75, 48);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(60, 20);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Camera";
+            // 
             // FrmQRCode
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -110,12 +110,11 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox cbb_Camera;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox tbt_BarCode;
         private System.Windows.Forms.Button btn_Start;
+        private System.Windows.Forms.ComboBox cbb_Camera;
+        private System.Windows.Forms.Label label1;
     }
 }

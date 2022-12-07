@@ -17,8 +17,6 @@ namespace _1.DAL.Models
 
         public Guid IdNhanVien { get; set; }
         public Guid IdKhachHang { get; set; }
-        public Guid IdKhuyenMai { get; set; }
-
 
         [Column("MaHD", TypeName = "varchar")]
         [StringLength(30)]
@@ -36,10 +34,7 @@ namespace _1.DAL.Models
         [ForeignKey("IdKhachHang")]
         public virtual KhachHang KhachHang { get; set; }
 
-        [ForeignKey("IdKhuyenMai")]
-        public virtual KhuyenMai KhuyenMai { get; set; }
 
-        [ForeignKey("IdNhanVien")]
         public virtual NhanVien NhanVien { get; set; }
 
         public virtual ObservableCollectionListSource<HoaDonChiTiet> HoaDonChiTiets { get; } = new();

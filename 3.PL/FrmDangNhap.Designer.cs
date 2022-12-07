@@ -49,6 +49,7 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.btn_Thoat = new System.Windows.Forms.Button();
+            this.cb_save = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -135,6 +136,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.cb_save);
             this.panel2.Controls.Add(this.btn_QuenMK);
             this.panel2.Controls.Add(this.btn_DangNhap);
             this.panel2.Controls.Add(this.panel5);
@@ -152,7 +154,7 @@
             this.btn_QuenMK.BackColor = System.Drawing.SystemColors.Control;
             this.btn_QuenMK.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btn_QuenMK.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
-            this.btn_QuenMK.Location = new System.Drawing.Point(172, 365);
+            this.btn_QuenMK.Location = new System.Drawing.Point(172, 388);
             this.btn_QuenMK.Name = "btn_QuenMK";
             this.btn_QuenMK.Size = new System.Drawing.Size(120, 25);
             this.btn_QuenMK.TabIndex = 11;
@@ -165,12 +167,13 @@
             this.btn_DangNhap.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
             this.btn_DangNhap.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btn_DangNhap.ForeColor = System.Drawing.Color.White;
-            this.btn_DangNhap.Location = new System.Drawing.Point(8, 355);
+            this.btn_DangNhap.Location = new System.Drawing.Point(8, 381);
             this.btn_DangNhap.Name = "btn_DangNhap";
             this.btn_DangNhap.Size = new System.Drawing.Size(138, 40);
             this.btn_DangNhap.TabIndex = 10;
             this.btn_DangNhap.Text = "Đăng nhập";
             this.btn_DangNhap.UseVisualStyleBackColor = false;
+            this.btn_DangNhap.Click += new System.EventHandler(this.btn_DangNhap_Click);
             // 
             // panel5
             // 
@@ -279,6 +282,19 @@
             this.btn_Thoat.UseVisualStyleBackColor = true;
             this.btn_Thoat.Click += new System.EventHandler(this.btn_Thoat_Click);
             // 
+            // cb_save
+            // 
+            this.cb_save.AutoSize = true;
+            this.cb_save.BackColor = System.Drawing.SystemColors.Control;
+            this.cb_save.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
+            this.cb_save.Location = new System.Drawing.Point(12, 341);
+            this.cb_save.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.cb_save.Name = "cb_save";
+            this.cb_save.Size = new System.Drawing.Size(124, 24);
+            this.cb_save.TabIndex = 15;
+            this.cb_save.Text = "Nhớ mật khẩu";
+            this.cb_save.UseVisualStyleBackColor = false;
+            // 
             // FrmDangNhap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -327,5 +343,6 @@
         private System.Windows.Forms.TextBox tbt_TenDn;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.CheckBox cb_save;
     }
 }

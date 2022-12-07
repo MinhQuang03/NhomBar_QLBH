@@ -16,8 +16,12 @@ namespace _2.BUS.IServices
 
         bool DeleteHoaDonChiTiet(HoaDonChiTiet hoaDonChiTiet);
 
+        //bool DeleteHDCT(HoaDonChiTietVM hoaDonChiTiet);
+
         List<HoaDonChiTiet> GetHoaDonChiTietFromDB();
 
-        List<HoaDonChiTietVM> ShowHoaDonChiTiet(string MaHD);
+        List<HoaDonChiTietVM> ShowHoaDonChiTiet(Guid IdHD);
+
+        
     }
 }

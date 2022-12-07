@@ -8,14 +8,26 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing;
+using System.Net.Mail;
+using System.Net;
+using _1.DAL.Models;
+using _2.BUS.IServices;
+using _2.BUS.Services;
 
 namespace _3.PL
 {
     public partial class FrmDangNhap : Form
     {
+        INhanVienService _nhanVienService;
         public FrmDangNhap()
         {
             InitializeComponent();
+            this.CenterToScreen();
+            _nhanVienService = new NhanVienService();
+            tbt_TenDn.Text = Properties.Settings.Default.tk;
+            tbt_MatKhau.Text = Properties.Settings.Default.mk;
+            //cb_save.Checked = true;
+
         }
 
         private void btn_Thoat_Click(object sender, EventArgs e)
@@ -48,6 +60,46 @@ namespace _3.PL
         {
             FrmQuenMK quenMK = new FrmQuenMK();
             quenMK.ShowDialog();
+        }
+
+        public void saveInfor()
+        {
+            if (cb_save.Checked == true)
+            {
+                Properties.Settings.Default.tk = tbt_TenDn.Text;
+                Properties.Settings.Default.mk = tbt_MatKhau.Text;
+                Properties.Settings.Default.TKdaLogin = tbt_TenDn.Text;
+                Properties.Settings.Default.MKdaLogin = tbt_MatKhau.Text;
+                Properties.Settings.Default.Save();
+
+            }
+            else
+            {
+                Properties.Settings.Default.tk = "";
+                Properties.Settings.Default.mk = "";
+                Properties.Settings.Default.TKdaLogin = tbt_TenDn.Text;
+                Properties.Settings.Default.MKdaLogin = tbt_MatKhau.Text;
+                Properties.Settings.Default.Save();
+            }
+        }
+
+        private void btn_DangNhap_Click(object sender, EventArgs e)
+        {
+            var login = _nhanVienService.GetNhanVienFromDB().Where(p => p.Gmail == tbt_TenDn.Text 
+            && p.MatKhau == tbt_MatKhau.Text).FirstOrDefault();
+            if(login != null)
+            {
+                saveInfor();
+                this.Hide();
+                FrmTrangChu trangChu = new FrmTrangChu();
+                trangChu.ShowDialog();
+                Const.TenNV = login.TenNhanVien;
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Đăng nhập thất bại");
+            }
         }
     }
 }

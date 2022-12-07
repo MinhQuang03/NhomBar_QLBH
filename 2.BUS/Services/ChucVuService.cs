@@ -26,6 +26,8 @@ namespace _2.BUS.Services
             return true;    
         }
 
+        
+
         public List<ChucVu> GetChucVuFromDB()
         {
             _chucVuList = _chucVuRepository.GetAllCv();

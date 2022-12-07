@@ -48,6 +48,8 @@ namespace _1.DAL.Models
         [StringLength(100)]
         public string Gmail { get; set; }
 
+        public string LinkAnh { get; set; }
+
         public bool TrangThai { get; set; }
 
         public Guid IdChucVu { get; set; }

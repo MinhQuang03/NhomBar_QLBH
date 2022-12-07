@@ -21,6 +21,10 @@ namespace _2.BUS.IServices
 
         List<SanPhamVM> ShowSanPham();
 
+        bool Addctsp(SanPhamVM sanPhamVM);
+
+        bool Updatectsp(SanPhamVM sanPhamVM);
+
 
     }
 }

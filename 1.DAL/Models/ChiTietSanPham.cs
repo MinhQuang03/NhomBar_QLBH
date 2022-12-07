@@ -27,9 +27,10 @@ namespace _1.DAL.Models
         public double GiaNhap { get; set; }
         public double GiaBan { get; set; }
         public  int SoLuongTon { get; set; }
-        public string Anh { get; set; }
+        public string  Anh { get; set; }
         public int TrangThai { get; set; }
         public string MaQRCode { get; set; }
+        
 
         [ForeignKey("IdDanhMuc")]
         public virtual DanhMuc DanhMuc { get; set; }

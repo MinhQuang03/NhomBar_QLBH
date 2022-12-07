@@ -27,7 +27,6 @@ namespace _1.DAL
 
         public DbSet<KhachHang> KhachHangs { get; set; }
 
-        public DbSet<KhuyenMai> KhuyenMais { get; set; }
 
         public DbSet<NhanVien> NhanViens { get; set; }
 
@@ -37,7 +36,7 @@ namespace _1.DAL
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            base.OnConfiguring(optionsBuilder.UseSqlServer(@"Data Source = QUANGBM\SQLEXPRESS;Initial Catalog = QLBH_DuAn;User Id = Quang;Password = 123456;Connect Timeout=3"));
+            base.OnConfiguring(optionsBuilder.UseSqlServer(@"Data Source = QUANGBM\SQLEXPRESS;Initial Catalog = DuAn1;User Id = Quang;Password = 123456;Connect Timeout=3"));
         }
     
         

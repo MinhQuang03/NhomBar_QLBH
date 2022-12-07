@@ -148,10 +148,11 @@
             this.btn_LayMK.ForeColor = System.Drawing.Color.White;
             this.btn_LayMK.Location = new System.Drawing.Point(8, 355);
             this.btn_LayMK.Name = "btn_LayMK";
-            this.btn_LayMK.Size = new System.Drawing.Size(138, 40);
+            this.btn_LayMK.Size = new System.Drawing.Size(158, 40);
             this.btn_LayMK.TabIndex = 10;
-            this.btn_LayMK.Text = "Reset mật khẩu";
+            this.btn_LayMK.Text = "Lấy lại mật khẩu";
             this.btn_LayMK.UseVisualStyleBackColor = false;
+            this.btn_LayMK.Click += new System.EventHandler(this.btn_LayMK_Click);
             // 
             // panel5
             // 

@@ -34,20 +34,22 @@
             this.btn_timk = new System.Windows.Forms.Button();
             this.dtg_hoadon = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ma = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tbt_timk = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dtg_hoadonchitiet = new System.Windows.Forms.DataGridView();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btn_XuatExcel = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_hoadon)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -56,12 +58,13 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btn_XuatExcel);
             this.groupBox1.Controls.Add(this.btn_XoaHD);
             this.groupBox1.Controls.Add(this.btn_timk);
             this.groupBox1.Controls.Add(this.dtg_hoadon);
             this.groupBox1.Controls.Add(this.tbt_timk);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.ForeColor = System.Drawing.Color.White;
+            this.groupBox1.ForeColor = System.Drawing.Color.IndianRed;
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox1.Name = "groupBox1";
@@ -84,10 +87,12 @@
             this.btn_XoaHD.Text = "Xóa hoá đơn";
             this.btn_XoaHD.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btn_XoaHD.UseVisualStyleBackColor = true;
+            this.btn_XoaHD.Click += new System.EventHandler(this.btn_XoaHD_Click);
             // 
             // btn_timk
             // 
             this.btn_timk.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.btn_timk.ForeColor = System.Drawing.Color.White;
             this.btn_timk.Image = ((System.Drawing.Image)(resources.GetObject("btn_timk.Image")));
             this.btn_timk.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_timk.Location = new System.Drawing.Point(387, 35);
@@ -98,18 +103,19 @@
             this.btn_timk.Text = "Tìm kiếm";
             this.btn_timk.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btn_timk.UseVisualStyleBackColor = false;
+            this.btn_timk.Click += new System.EventHandler(this.btn_timk_Click);
             // 
             // dtg_hoadon
             // 
             this.dtg_hoadon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtg_hoadon.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
+            this.Ma,
             this.Column2,
             this.Column3,
             this.Column4,
             this.Column5,
-            this.Column6,
-            this.Column7});
+            this.Column6});
             this.dtg_hoadon.Location = new System.Drawing.Point(7, 100);
             this.dtg_hoadon.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dtg_hoadon.Name = "dtg_hoadon";
@@ -117,13 +123,22 @@
             this.dtg_hoadon.RowTemplate.Height = 25;
             this.dtg_hoadon.Size = new System.Drawing.Size(1179, 331);
             this.dtg_hoadon.TabIndex = 2;
+            this.dtg_hoadon.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_hoadon_CellClick);
             // 
             // Column1
             // 
-            this.Column1.HeaderText = "Mã Hóa Đơn";
+            this.Column1.HeaderText = "ID";
             this.Column1.MinimumWidth = 6;
             this.Column1.Name = "Column1";
+            this.Column1.Visible = false;
             this.Column1.Width = 125;
+            // 
+            // Ma
+            // 
+            this.Ma.HeaderText = "Mã Hóa đơn";
+            this.Ma.MinimumWidth = 6;
+            this.Ma.Name = "Ma";
+            this.Ma.Width = 125;
             // 
             // Column2
             // 
@@ -160,13 +175,6 @@
             this.Column6.Name = "Column6";
             this.Column6.Width = 130;
             // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "Ghi Chú";
-            this.Column7.MinimumWidth = 6;
-            this.Column7.Name = "Column7";
-            this.Column7.Width = 125;
-            // 
             // tbt_timk
             // 
             this.tbt_timk.Location = new System.Drawing.Point(154, 35);
@@ -179,6 +187,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(14, 41);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(135, 20);
@@ -188,7 +197,7 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.dtg_hoadonchitiet);
-            this.groupBox2.ForeColor = System.Drawing.Color.White;
+            this.groupBox2.ForeColor = System.Drawing.Color.IndianRed;
             this.groupBox2.Location = new System.Drawing.Point(14, 476);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox2.Name = "groupBox2";
@@ -203,6 +212,7 @@
             this.dtg_hoadonchitiet.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtg_hoadonchitiet.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column8,
+            this.Column7,
             this.Column9,
             this.Column10,
             this.Column11});
@@ -216,10 +226,18 @@
             // 
             // Column8
             // 
-            this.Column8.HeaderText = "Mã Sản Phẩm";
+            this.Column8.HeaderText = "ID";
             this.Column8.MinimumWidth = 6;
             this.Column8.Name = "Column8";
+            this.Column8.Visible = false;
             this.Column8.Width = 150;
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "Mã Sản Phẩm";
+            this.Column7.MinimumWidth = 6;
+            this.Column7.Name = "Column7";
+            this.Column7.Width = 125;
             // 
             // Column9
             // 
@@ -241,6 +259,21 @@
             this.Column11.MinimumWidth = 6;
             this.Column11.Name = "Column11";
             this.Column11.Width = 125;
+            // 
+            // btn_XuatExcel
+            // 
+            this.btn_XuatExcel.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.btn_XuatExcel.ForeColor = System.Drawing.Color.White;
+            this.btn_XuatExcel.Image = ((System.Drawing.Image)(resources.GetObject("btn_XuatExcel.Image")));
+            this.btn_XuatExcel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_XuatExcel.Location = new System.Drawing.Point(873, 29);
+            this.btn_XuatExcel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btn_XuatExcel.Name = "btn_XuatExcel";
+            this.btn_XuatExcel.Size = new System.Drawing.Size(184, 44);
+            this.btn_XuatExcel.TabIndex = 16;
+            this.btn_XuatExcel.Text = "Xuất excel";
+            this.btn_XuatExcel.UseVisualStyleBackColor = false;
+            this.btn_XuatExcel.Click += new System.EventHandler(this.btn_XuatExcel_Click);
             // 
             // FrmHoaDon
             // 
@@ -267,20 +300,22 @@
         private System.Windows.Forms.Button btn_XoaHD;
         private System.Windows.Forms.Button btn_timk;
         private System.Windows.Forms.DataGridView dtg_hoadon;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.TextBox tbt_timk;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.DataGridView dtg_hoadonchitiet;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Ma;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.Button btn_XuatExcel;
     }
 }

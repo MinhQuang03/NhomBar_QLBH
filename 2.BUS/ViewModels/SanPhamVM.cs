@@ -20,9 +20,10 @@ namespace _2.BUS.ViewModels
         public double GiaBan { get; set; }
         public string LinkAnh { get; set; }
         public int SoLuongTon { get; set; }
-        public string  TrangThai { get; set; }
+        public int  TrangThai { get; set; }
         public string MaQRCode { get; set; }
         public string TenSP { get; set; }
+        public string Masp { get; set; }
         public string TenNhaPhanPhoi { get; set; }
         public string TenDanhMuc { get; set; }
     }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using _1.DAL.Models;
+using _2.BUS.ViewModels;
 
 namespace _2.BUS.IServices
 {
@@ -15,6 +16,8 @@ namespace _2.BUS.IServices
         bool DeleteNhanVien(NhanVien nhanVien);
 
         List<NhanVien> GetNhanVienFromDB();
+        List<NhanVienVM> ShowNhanVien();
+
 
 
     }

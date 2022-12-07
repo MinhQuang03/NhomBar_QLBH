@@ -11,5 +11,7 @@ namespace _2.BUS.IServices
     {
         bool AddChucVu(ChucVu chucVu);
         List<ChucVu> GetChucVuFromDB();
+
+        //ChucVu GetChucVu(string maCV);
     }
 }

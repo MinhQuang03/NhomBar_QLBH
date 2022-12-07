@@ -170,9 +170,6 @@ namespace _1.DAL.Migrations
                     b.Property<Guid>("IdKhachHang")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("IdKhuyenMai")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<Guid>("IdNhanVien")
                         .HasColumnType("uniqueidentifier");
 
@@ -189,6 +186,9 @@ namespace _1.DAL.Migrations
                         .HasColumnType("datetime")
                         .HasColumnName("NgayThanhToan");
 
+                    b.Property<Guid?>("NhanVienIdNhanVien")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<double>("TongTien")
                         .HasColumnType("float");
 
@@ -199,9 +199,7 @@ namespace _1.DAL.Migrations
 
                     b.HasIndex("IdKhachHang");
 
-                    b.HasIndex("IdKhuyenMai");
-
-                    b.HasIndex("IdNhanVien");
+                    b.HasIndex("NhanVienIdNhanVien");
 
                     b.ToTable("HoaDon");
                 });
@@ -241,12 +239,15 @@ namespace _1.DAL.Migrations
                     b.Property<string>("DiaChi")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("DiemTieuDung")
+                        .HasColumnType("int");
+
                     b.Property<string>("MaKH")
                         .HasMaxLength(30)
                         .HasColumnType("varchar(30)")
                         .HasColumnName("MaKH");
 
-                    b.Property<DateTime>("NgaySinh")
+                    b.Property<DateTime?>("NgaySinh")
                         .HasColumnType("datetime")
                         .HasColumnName("NgaySinh");
 
@@ -263,28 +264,6 @@ namespace _1.DAL.Migrations
                     b.HasKey("IdKhachHang");
 
                     b.ToTable("KhachHang");
-                });
-
-            modelBuilder.Entity("_1.DAL.Models.KhuyenMai", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<double>("Giam")
-                        .HasColumnType("float");
-
-                    b.Property<string>("MaKM")
-                        .HasMaxLength(30)
-                        .HasColumnType("varchar(30)")
-                        .HasColumnName("MaKM");
-
-                    b.Property<int>("TrangThai")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("KhuyenMai");
                 });
 
             modelBuilder.Entity("_1.DAL.Models.NhaPhanPhoi", b =>
@@ -327,6 +306,9 @@ namespace _1.DAL.Migrations
 
                     b.Property<Guid>("IdChucVu")
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("LinkAnh")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("MaNhanVien")
                         .HasMaxLength(30)
@@ -453,21 +435,11 @@ namespace _1.DAL.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("_1.DAL.Models.KhuyenMai", "KhuyenMai")
-                        .WithMany("HoaDons")
-                        .HasForeignKey("IdKhuyenMai")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("_1.DAL.Models.NhanVien", "NhanVien")
                         .WithMany("HoaDons")
-                        .HasForeignKey("IdNhanVien")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("NhanVienIdNhanVien");
 
                     b.Navigation("KhachHang");
-
-                    b.Navigation("KhuyenMai");
 
                     b.Navigation("NhanVien");
                 });
@@ -533,11 +505,6 @@ namespace _1.DAL.Migrations
                 {
                     b.Navigation("GioHangs");
 
-                    b.Navigation("HoaDons");
-                });
-
-            modelBuilder.Entity("_1.DAL.Models.KhuyenMai", b =>
-                {
                     b.Navigation("HoaDons");
                 });
 

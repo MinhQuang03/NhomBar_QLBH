@@ -34,6 +34,27 @@ namespace _2.BUS.Services
             return true;
         }
 
+        public bool Addctsp(SanPhamVM sanPhamVM)
+        {
+            ChiTietSanPham chiTietSp = new ChiTietSanPham()
+            {
+                IdChiTietSp = sanPhamVM.IdChiTietSp,
+                IdNhaPhanPhoi = sanPhamVM.IdNhaPhanPhoi,
+                IdDanhMuc = sanPhamVM.IdDanhMuc,
+                IdSanPham = sanPhamVM.IdSanPham,
+                GiaNhap = sanPhamVM.GiaNhap,
+                GiaBan = sanPhamVM.GiaBan,
+                SoLuongTon = sanPhamVM.SoLuongTon,
+                NgaySX = sanPhamVM.NgaySX,
+                HanSD = sanPhamVM.HanSD,
+                MaQRCode = sanPhamVM.MaQRCode,
+                Anh = sanPhamVM.LinkAnh,
+                TrangThai = sanPhamVM.TrangThai
+            };
+            _chiTietSanPhamRepository.Add(chiTietSp);
+            return true;
+        }
+
         public bool DeleteChiTietSp(ChiTietSanPham chiTietSanPham)
         {
             _chiTietSanPhamRepository.Delete(chiTietSanPham);
@@ -57,6 +78,7 @@ namespace _2.BUS.Services
                             IdChiTietSp = a.IdChiTietSp,
                             MaQRCode = a.MaQRCode,
                             TenSP = d.TenSP,
+                            Masp = d.MaSP,
                             TenDanhMuc = c.TenDanhMuc,
                             TenNhaPhanPhoi = b.TenNhaPhanPhoi,
                             GiaNhap = a.GiaNhap,
@@ -65,7 +87,7 @@ namespace _2.BUS.Services
                             NgaySX = a.NgaySX,
                             HanSD = a.HanSD,
                             LinkAnh = a.Anh,
-                            TrangThai = a.TrangThai == 1 ? "Kinh doanh" : "Ngừng kinh doanh"
+                            TrangThai = a.TrangThai
                         }).ToList();
             return data;
         }
@@ -73,6 +95,27 @@ namespace _2.BUS.Services
         public bool UpdateChiTietSp(ChiTietSanPham chiTietSanPham)
         {
             _chiTietSanPhamRepository.Update(chiTietSanPham);
+            return true;
+        }
+
+        public bool Updatectsp(SanPhamVM sanPhamVM)
+        {
+            ChiTietSanPham chiTietSp = new ChiTietSanPham()
+            {
+                IdChiTietSp = sanPhamVM.IdChiTietSp,
+                IdNhaPhanPhoi = sanPhamVM.IdNhaPhanPhoi,
+                IdDanhMuc = sanPhamVM.IdDanhMuc,
+                IdSanPham = sanPhamVM.IdSanPham,
+                GiaNhap = sanPhamVM.GiaNhap,
+                GiaBan = sanPhamVM.GiaBan,
+                SoLuongTon = sanPhamVM.SoLuongTon,
+                NgaySX = sanPhamVM.NgaySX,
+                HanSD = sanPhamVM.HanSD,
+                MaQRCode = sanPhamVM.MaQRCode,
+                Anh = sanPhamVM.LinkAnh,
+                TrangThai = sanPhamVM.TrangThai
+            };
+            _chiTietSanPhamRepository.Update(chiTietSp);
             return true;
         }
     }

@@ -53,6 +53,7 @@ namespace _2.BUS.Services
                         select new HoaDonVM
                         {
                             IdHoaDon = o.IdHoaDon,
+                            MaHD = o.MaHD,
                             NgayTao = o.NgayTao,
                             GmailNv = e.Gmail,
                             SDTKhacHang = c.SDT, 
